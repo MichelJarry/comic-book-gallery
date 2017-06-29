@@ -9,9 +9,17 @@ namespace ComicBookGallery.Controllers
 {
     public class ComicBooksController : Controller
     {
-        public string Detail()
+        //ActionResult is almos always used as a return type for action methods
+        //(hit f12 or Alt f12 for interface information)
+        public ActionResult Detail()
         {
-            return "Hello from the comic books Controller!";
+            if (DateTime.Today.DayOfWeek == DayOfWeek.Thursday)
+            {
+                return Redirect("/");
+            }
+
+            return Content("Hello from the comic books controller");
+            
         }
     }
 }
